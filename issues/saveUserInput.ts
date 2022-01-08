@@ -7,6 +7,9 @@
  * "'value' is not a string or number (VerySimpleDatabase.insert)"
  *
  * Also, double-check that the functions are otherwise correct.
+ *
+ * Write unit tests for the functions, there don't seem to be any at
+ * the moment.
  */
 
 interface VerySimpleDatabase {
