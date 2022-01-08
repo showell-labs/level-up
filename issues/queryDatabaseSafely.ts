@@ -12,7 +12,7 @@ interface Database {
   /**
    * Query database records by exact field match
    */
-  query(query: Query): any;
+  query(query: Query): unknown;
 }
 
 /**
