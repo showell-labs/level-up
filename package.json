@@ -1,0 +1,27 @@
+{
+  "name": "maturity-test",
+  "version": "1.0.0",
+  "description": "Maturity tests for developers",
+  "main": "index.js",
+  "repository": "git@github.com:showell-labs/maturity-test.git",
+  "author": "Juha Suni <juha.suni@showell.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "@types/react": "^17.0.38",
+    "@types/react-native": "^0.66.11",
+    "eslint": "^8.6.0",
+    "jest": "^27.4.7",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-native": "^0.66.4"
+  }
+}
