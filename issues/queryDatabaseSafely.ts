@@ -10,7 +10,7 @@ interface Query {
 
 interface Database {
   /**
-   * Query fields by exact match
+   * Query database records by exact field match
    */
   query(query: Query): any;
 }
