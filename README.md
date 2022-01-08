@@ -10,9 +10,10 @@ but that code is not relevant for solving the issues.
 ## How to solve the issues
 
 1. Make a private fork of this repository and checkout a new branch
-2. Go through each file in `/issues` folder
-3. In the beginning of each file, there's a comment that describes the issue
-4. Resolve the issue
+2. Clone on your device and run `yarn` (make sure you have `yarn` installed)
+3. Go through each file in `/issues` folder
+4. In the beginning of each file, there's a comment that describes the issue
+5. Resolve the issue
 
 Finally, make a PR that points to your private fork. Submit us a link to your PR.
 
