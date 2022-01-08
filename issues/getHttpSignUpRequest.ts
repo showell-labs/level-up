@@ -6,7 +6,7 @@
  * it doesn't seem to work with our OAuth 2 based API.
  */
 
-export function getSignUpRequest(
+export function getHttpSignUpRequest(
   bearerToken: string,
   accountName: string,
   email: string
