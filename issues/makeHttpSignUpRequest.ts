@@ -2,11 +2,11 @@ export function makeHttpSignUpRequest(
   bearerToken: string,
   accountName: string,
   email: string,
-  contentType: "form" | "json"
+  contentType: 'form' | 'json'
 ): string {
-  let body = "";
+  let body = '';
 
-  if (contentType === "form") {
+  if (contentType === 'form') {
     body = `name=${accountName}&userEmail=${email}`;
   } else {
     body = JSON.stringify({ name: accountName, userEmail: email });

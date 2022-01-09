@@ -16,7 +16,7 @@ export interface Database {
 }
 
 // Very naive implementation, but sufficient for this issue
-const isValidEmail = (email: string) => email.includes("@");
+const isValidEmail = (email: string) => email.includes('@');
 
 export class OrderProcessor {
   private mailer: Mailer;
@@ -35,7 +35,7 @@ export class OrderProcessor {
       order.processed = true;
       await this.orderDatabase.update(order.id, order);
     } else if (!order) {
-      throw new Error("Order is missing");
+      throw new Error('Order is missing');
     }
 
     return order;
@@ -50,7 +50,7 @@ export class OrderProcessor {
         if (isValidEmail(email)) {
           this.mailer.sendEmail(email, order.contents);
         } else {
-          throw new Error("Invalid email");
+          throw new Error('Invalid email');
         }
       }
     }
@@ -94,7 +94,7 @@ export class OrderQueue {
         if (!order.cancelled && order.date > expirationDate) {
           await this.processor.orderProcessor(order);
 
-          const emails = order.recipients.split(";");
+          const emails = order.recipients.split(';');
           emails.forEach(async (email) => {
             await this.processor.sendConfirmationMail(order, email);
           });

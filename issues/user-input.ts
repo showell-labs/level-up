@@ -6,12 +6,12 @@ export function savePassword(
   database: VerySimpleDatabase,
   httpPostParams: Record<string, string>
 ) {
-  database.insert("password", httpPostParams.password);
+  database.insert('password', httpPostParams.password);
 }
 
 export function saveAge(
   database: VerySimpleDatabase,
   httpPostParams: Record<string, string>
 ) {
-  database.insert("age", parseInt(httpPostParams.age));
+  database.insert('age', parseInt(httpPostParams.age));
 }

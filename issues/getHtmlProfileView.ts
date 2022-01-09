@@ -11,11 +11,11 @@ export function getHtmlProfileView(userProfile: UserProfile): string {
     userProfile.name
   }</a></div>
   <div class="phone">${userProfile.phone}</div>
-  <div class="signature">${userProfile.signature.replace("\n", "<br>")}</div>
+  <div class="signature">${userProfile.signature.replace('\n', '<br>')}</div>
     </div>`;
 }
 
-const textareaDOMElement = document.createElement("textarea");
+const textareaDOMElement = document.createElement('textarea');
 function escapeHTMLAttribute(html: string) {
   textareaDOMElement.textContent = html;
   return textareaDOMElement.innerHTML;

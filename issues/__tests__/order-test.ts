@@ -1,15 +1,15 @@
-import { OrderProcessor, OrderQueue, Mailer, Database } from "../order";
+import { OrderProcessor, OrderQueue, Mailer, Database } from '../order';
 
 const MOCK_ORDER = {
-  id: "abc",
+  id: 'abc',
   date: new Date(),
-  recipients: "john@google.com;jane@google.com",
+  recipients: 'john@google.com;jane@google.com',
   cancelled: false,
-  contents: "Item1\nItem2",
+  contents: 'Item1\nItem2',
   processed: false,
 };
 
-describe("order-module", () => {
+describe('order-module', () => {
   let processor: OrderProcessor;
   let queue: OrderQueue;
   let mockMailer: Mailer;
@@ -28,53 +28,53 @@ describe("order-module", () => {
     queue = new OrderQueue(processor);
   });
 
-  describe("OrderProcessor", () => {
-    test("process order", async () => {
+  describe('OrderProcessor', () => {
+    test('process order', async () => {
       expect(await processor.orderProcessor({ ...MOCK_ORDER })).toHaveProperty(
-        "processed",
+        'processed',
         true
       );
     });
 
-    test("process cancelled order", async () => {
+    test('process cancelled order', async () => {
       const order = await processor.orderProcessor({
         ...MOCK_ORDER,
         cancelled: true,
       });
 
-      expect(order).toHaveProperty("processed", false);
+      expect(order).toHaveProperty('processed', false);
     });
 
-    test("send confirmation email", async () => {
+    test('send confirmation email', async () => {
       await processor.sendConfirmationMail(
         {
           ...MOCK_ORDER,
           processed: true,
         },
-        "john@google.com"
+        'john@google.com'
       );
 
       expect(mockMailer.sendEmail).toHaveBeenCalledWith(
-        "john@google.com",
+        'john@google.com',
         MOCK_ORDER.contents
       );
     });
 
-    test("send confirmation email with invalid email", async () => {
+    test('send confirmation email with invalid email', async () => {
       return expect(
         processor.sendConfirmationMail(
           {
             ...MOCK_ORDER,
             processed: true,
           },
-          "johngoogle.com"
+          'johngoogle.com'
         )
-      ).rejects.toThrowError("Invalid email");
+      ).rejects.toThrowError('Invalid email');
     });
   });
 
-  describe("OrderQueue", () => {
-    test("process order", async () => {
+  describe('OrderQueue', () => {
+    test('process order', async () => {
       queue.addOrder({ ...MOCK_ORDER });
       await queue.processNextBatch();
 
@@ -84,7 +84,7 @@ describe("order-module", () => {
       });
     });
 
-    test("add multiple orders (batch size + 1) and process twice", async () => {
+    test('add multiple orders (batch size + 1) and process twice', async () => {
       for (let i = 0; i < 6; i++) {
         queue.addOrder({ ...MOCK_ORDER });
       }

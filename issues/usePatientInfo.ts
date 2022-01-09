@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import ServiceFactory from "../src/ServiceFactory";
+import { useEffect, useState } from 'react';
+import ServiceFactory from '../src/ServiceFactory';
 
 type UserInfo = { userId: string; name: string };
 type MedicalRecord = { userId: string; isSick: boolean };
@@ -26,15 +26,15 @@ interface LoggingService {
 export default function usePatientInfo(
   userId: string
 ): PatientInfo | undefined {
-  const userService = ServiceFactory.createService<UserService>("userService");
+  const userService = ServiceFactory.createService<UserService>('userService');
   const medicalRecordService =
-    ServiceFactory.createService<MedicalRecordService>("medicalRecordService");
+    ServiceFactory.createService<MedicalRecordService>('medicalRecordService');
 
-  const [userInfo, setUserInfo] = useState<UserInfo>({ userId, name: "" });
+  const [userInfo, setUserInfo] = useState<UserInfo>({ userId, name: '' });
   const [medicalRecord, setMedicalRecord] = useState<MedicalRecord>();
 
   const logAccess = (action: string, userId: string) =>
-    ServiceFactory.createService<LoggingService>("logService").log(
+    ServiceFactory.createService<LoggingService>('logService').log(
       action,
       userId
     );
@@ -42,7 +42,7 @@ export default function usePatientInfo(
   useEffect(() => {
     userService.getUserInfo(userInfo.userId).then(setUserInfo);
 
-    logAccess("request-access", userInfo.userId);
+    logAccess('request-access', userInfo.userId);
     medicalRecordService
       .getMedicalRecord(userInfo.userId)
       .then(setMedicalRecord);
@@ -50,7 +50,7 @@ export default function usePatientInfo(
 
   useEffect(() => {
     if (medicalRecord) {
-      logAccess("obtain-access", userInfo.userId);
+      logAccess('obtain-access', userInfo.userId);
     }
   }, [medicalRecord, userInfo]);
 
