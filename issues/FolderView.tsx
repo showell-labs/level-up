@@ -1,5 +1,10 @@
 import React from "react";
-import { ScrollView, TouchableHighlight } from "react-native";
+import {
+  ScrollView,
+  StyleProp,
+  TouchableHighlight,
+  ViewStyle,
+} from "react-native";
 import ServiceFactory from "../src/ServiceFactory";
 
 interface File {
@@ -18,12 +23,12 @@ const FolderView = ({ files }: { files: File[] }) => {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{ flex: 1 }}>
       {files.map((file, index) => (
         <FileCard
           key={file.path}
           path={file.path}
-          index={index}
+          style={{ top: index * 100 }}
           onNavigate={onNavigate}
         />
       ))}
@@ -34,16 +39,16 @@ const FolderView = ({ files }: { files: File[] }) => {
 const FileCard = React.memo(
   ({
     path,
-    index,
+    style,
     onNavigate,
   }: {
     path: string;
-    index: number;
+    style: StyleProp<ViewStyle>;
     onNavigate(path: string): void;
   }) => {
     return (
       <TouchableHighlight
-        style={{ left: 0, top: index * 100, width: 100, height: 100 }}
+        style={[{ left: 0, width: 100, height: 100 }, style]}
         onPress={() => {
           onNavigate(path);
         }}
