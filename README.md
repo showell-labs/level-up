@@ -20,7 +20,7 @@ The issues have been written for programmers from intermediate to advanced level
 
 Finally, make a PR that points to your fork (not to original repo). Submit us a link to your PR.
 
-## Good to Knows
+## Good to Know
 
 When there's a `jest` test written for the issue, that test should be also updated to
 ensure that the issue has been properly solved.
