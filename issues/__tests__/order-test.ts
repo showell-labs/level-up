@@ -1,4 +1,4 @@
-import { OrderProcessor, OrderQueue, Mailer, Database } from "../order-module";
+import { OrderProcessor, OrderQueue, Mailer, Database } from "../order";
 
 const MOCK_ORDER = {
   id: "abc",
