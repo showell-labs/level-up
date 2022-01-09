@@ -1,27 +1,3 @@
-/**
- * Issue
- *
- * When there are multiple annotations of different size close to each other, the
- * algorithm doesn't seem to make logically the best choice.
- *
- * Imagine you have two annotations like in the example below. "x" refers to user's touch
- * point. For some reason this algorithm seems to return "Annot 1" even though "Annot 2"
- * is clearly closer.
- *
- * *************************************
- *
- * --------------
- * | Annot 1    |
- * --------------
- *
- * x
- * --------------------------------
- * | Annot 2                      |
- * --------------------------------
- *
- * *************************************
- */
-
 interface TouchPoint {
   x: number;
   y: number;

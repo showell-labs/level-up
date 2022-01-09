@@ -1,14 +1,3 @@
-/**
- * Issue
- *
- * Somehow this implementation for the order processing looks messy.
- * Perhaps there's some room for improvement here?
- *
- * Customers have reported that the order information hasn't been delivered
- * to all emails. For instance one customer reported that she had added three
- * addresses but only first one received the email.
- */
-
 interface Order {
   id: string;
   date: Date;

@@ -1,10 +1,3 @@
-/**
- * Issue
- *
- * Even though we've optimized FileCard (which is very heavy to render!) using React.memo,
- * all cards still seem to re-render every time the parent FolderView is rendered.
- */
-
 import React from "react";
 import { ScrollView, TouchableHighlight } from "react-native";
 import ServiceFactory from "../src/ServiceFactory";

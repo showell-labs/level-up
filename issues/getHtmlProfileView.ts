@@ -1,9 +1,3 @@
-/**
- * Issue
- *
- * Perform security audit for this function. Fix any issues found.
- */
-
 interface UserProfile {
   url: string;
   name: string;

@@ -1,9 +1,3 @@
-/**
- * Issue
- *
- * Perform security audit for this function. Fix any issues found.
- */
-
 interface Query {
   [field: string]: string | number | Date;
 }
