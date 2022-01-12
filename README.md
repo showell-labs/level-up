@@ -5,7 +5,7 @@ This repository contains a set of problem solving issues for programmers.
 Most issues can be resolved with basic understanding of TypeScript, but some of the
 issues may require understanding of technologies such as React.
 
-The issues are described in [GitHub Issues]((https://github.com/showell-labs/level-up/issues) and
+The issues are described in [GitHub Issues](https://github.com/showell-labs/level-up/issues) and
 the related code can be found from `/issues` folder.
 
 The issues have been written for programmers from intermediate to advanced level.
