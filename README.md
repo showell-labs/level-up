@@ -12,7 +12,7 @@ The issues have been written for programmers from intermediate to advanced level
 
 ## How to Prove Your Skills
 
-1. Make a private fork of this repository and checkout a new branch
+1. Make a **private fork** (within a private repository) of this repository and checkout a new branch
 2. Clone on your device and run `yarn` (make sure you have `yarn` installed)
 3. Resolve [each issue in this repository](https://github.com/showell-labs/level-up/issues)
 4. Make a PR using your own repository (fork) as the base repository (we don't accept PRs to this repository).
