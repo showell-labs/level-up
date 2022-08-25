@@ -1,9 +1,9 @@
 import { OrderProcessor, OrderQueue, Mailer, Database } from '../order';
-
+//Necessary to update MOCK_ORDER based on new order module set up
 const MOCK_ORDER = {
   id: 'abc',
   date: new Date(),
-  recipients: 'john@google.com;jane@google.com',
+  recipients: ['john@google.com','jane@google.com'],
   cancelled: false,
   contents: 'Item1\nItem2',
   processed: false,
