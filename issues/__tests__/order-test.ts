@@ -60,6 +60,18 @@ describe('order-module', () => {
       );
     });
 
+    //test new recipient set up;
+
+    test('send confirmation emails with recipient array', async ()=> {
+      MOCK_ORDER.recipients.forEach(async (email) => {
+        await processor.sendConfirmationMail({...MOCK_ORDER, processed:true}, email);
+      });
+      expect(mockMailer.sendEmail).toHaveBeenCalledWith('john@google.com', MOCK_ORDER.contents);
+      expect(mockMailer.sendEmail).toHaveBeenCalledWith('jane@google.com', MOCK_ORDER.contents);
+
+
+    });
+
     test('send confirmation email with invalid email', async () => {
       return expect(
         processor.sendConfirmationMail(
