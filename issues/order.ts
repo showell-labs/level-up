@@ -1,3 +1,7 @@
+// I assume the issue of emails is orignating from the splitting function of using ; as the splitter.
+//There are two solutions that I think i could solve this. new orders are pushed in an array and each order should only have on email
+// or the recipients object of the order could be an array of strings and for each recipient in the array of strings we send a confirmation email
+
 interface Order {
   id: string;
   date: Date;
@@ -55,7 +59,7 @@ export class OrderProcessor {
       }
     }
   }
-}
+};
 
 export class OrderQueue {
   private itemArray: Order[] = [];
