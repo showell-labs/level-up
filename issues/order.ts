@@ -5,7 +5,7 @@
 interface Order {
   id: string;
   date: Date;
-  recipients: string;
+  recipients: string[];
   cancelled: boolean;
   contents: string;
   processed: boolean;
@@ -59,7 +59,7 @@ export class OrderProcessor {
       }
     }
   }
-};
+}
 
 export class OrderQueue {
   private itemArray: Order[] = [];
@@ -97,9 +97,8 @@ export class OrderQueue {
       const promises = batch.map(async (order) => {
         if (!order.cancelled && order.date > expirationDate) {
           await this.processor.orderProcessor(order);
-
-          const emails = order.recipients.split(';');
-          emails.forEach(async (email) => {
+          
+          order.recipients.forEach(async (email) => {
             await this.processor.sendConfirmationMail(order, email);
           });
         }
