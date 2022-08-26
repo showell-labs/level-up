@@ -12,6 +12,10 @@
 //Initial Thoughts with Issue #2,
 //Something is wrong with the way we are sending data to the Oauth 2 based API.
 //in order to fix this I will need to lookover the oauth 2 based api documentation to ensure we are doing doing things properly;
+//after research and analyzing the code I believe the issue lies with the content=type not being conditional
+function convertToURI(word:string):string{
+  return encodeURIComponent(word);
+}
 
 export function makeHttpSignUpRequest(
   bearerToken: string,
@@ -22,15 +26,17 @@ export function makeHttpSignUpRequest(
   let body = '';
 
   if (contentType === 'form') {
-    body = `name=${accountName}&userEmail=${email}`;
+    body = `name=${convertToURI(accountName)}&userEmail=${email}`;
   } else {
     body = JSON.stringify({ name: accountName, userEmail: email });
   }
 
+  //Content-Type: should be either x-www-form-urlencoded or json so that has to be conditional
+
   return `POST /1/sign-up HTTP/1.1
     Host: api.myapp
     Authentication: Basic ${bearerToken}
-    Content-Type: application/x-www-form-urlencoded
+    Content-Type: ${contentType === 'form' ? `application/x-www-form-urlencoded` : `application/json`}
     Content-Length: ${body.length}
     
     ${body}`;
