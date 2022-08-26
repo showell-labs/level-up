@@ -9,6 +9,10 @@
 // I do not like this solution because as its not really solving the bug. ++ we are seeing now with likes of elon musks baby that names might have special characters.
 //2. Therefore we should create a function to ensure that the account name can be "translated" so the "computer" can understand that the accountname has special characters and can handle its
 
+//Initial Thoughts with Issue #2,
+//Something is wrong with the way we are sending data to the Oauth 2 based API.
+//in order to fix this I will need to lookover the oauth 2 based api documentation to ensure we are doing doing things properly;
+
 export function makeHttpSignUpRequest(
   bearerToken: string,
   accountName: string,
