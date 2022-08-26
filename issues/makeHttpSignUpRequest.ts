@@ -21,7 +21,7 @@ export function makeHttpSignUpRequest(
   bearerToken: string,
   accountName: string,
   email: string,
-  contentType: 'form' | 'json'
+  contentType: string
 ): string {
   let body = '';
 
@@ -38,6 +38,5 @@ export function makeHttpSignUpRequest(
     Authentication: Basic ${bearerToken}
     Content-Type: ${contentType === 'form' ? `application/x-www-form-urlencoded` : `application/json`}
     Content-Length: ${body.length}
-    
     ${body}`;
 }
