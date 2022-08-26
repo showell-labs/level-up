@@ -16,7 +16,7 @@ describe('getTouchedAnnotation', () => {
       { left: 0, top: 0, width: 100, height: 50, url: 'https://showell.com/1' },
       {
         left: 0,
-        top: 60,
+        top: 70,
         width: 100,
         height: 50,
         url: 'https://showell.com/2',
