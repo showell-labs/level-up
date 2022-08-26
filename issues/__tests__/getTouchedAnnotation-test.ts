@@ -16,14 +16,21 @@ describe('getTouchedAnnotation', () => {
       { left: 0, top: 0, width: 100, height: 50, url: 'https://showell.com/1' },
       {
         left: 0,
-        top: 70,
-        width: 100,
+        top: 60,
+        width: 200,
         height: 50,
         url: 'https://showell.com/2',
       },
+      {
+        left: 0,
+        top: 1000,
+        width: 200,
+        height: 50,
+        url: 'https://showell.com/3',
+      },
     ];
 
-    expect(getTouchedAnnotation({ x: 50, y: 59 }, annotations)).toBe(
+    expect(getTouchedAnnotation({ x: 101, y: 59 }, annotations)).toBe(
       annotations[1]
     );
   });
