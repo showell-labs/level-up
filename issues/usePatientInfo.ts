@@ -1,6 +1,19 @@
+// Issues:
+// There appears to be number of issues with usePatientInfo hook:
+
+// 1. The hook is causing performance issues. It is a simple hook but somehow seems to be doing much more than it should.
+
+//2.  The hook doesn't seem to react properly on changes to input param.
+
+// 3. We're seeing errors like "Can't perform a React state update on an unmounted component" that somehow seem to be related to this component.
+
+// Because of the large number of issues, you should check the entire implementation of the hook.
+
 import { useEffect, useState } from 'react';
 import ServiceFactory from '../src/ServiceFactory';
 //Initial Thoughts 
+//doing more than it should -> i'm assuming states are being rerendered more than needed --> check dependency list
+//when userId changes the states don't get updated
 //when the component that uses the hook gets unmounted the promise is trying to set a state thats is no longer there
 //
 type UserInfo = { userId: string; name: string };
@@ -40,16 +53,15 @@ export default function usePatientInfo(
       action,
       userId
     );
-
-  useEffect(() => {
     userService.getUserInfo(userInfo.userId).then(setUserInfo);
 
+  useEffect(() => {
     logAccess('request-access', userInfo.userId);
     medicalRecordService
       .getMedicalRecord(userInfo.userId)
       .then(setMedicalRecord);
       //this is the promise 
-  }, [userService, userInfo]);
+  }, [userService, userInfo]); //the useEffect should rerender when userInfo gets updated but the useEffect itself is updating userInfo so it will be called repeatedly
 
   useEffect(() => {
     if (medicalRecord) {
