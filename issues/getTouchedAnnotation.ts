@@ -120,6 +120,5 @@ export default function getTouchedAnnotation(
       match = annot;
     }
   });
-  console.log(match);
   return match;
 }

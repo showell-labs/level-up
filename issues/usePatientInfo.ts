@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import ServiceFactory from '../src/ServiceFactory';
-
+//Initial Thoughts 
+//when the component that uses the hook gets unmounted the promise is trying to set a state thats is no longer there
+//
 type UserInfo = { userId: string; name: string };
 type MedicalRecord = { userId: string; isSick: boolean };
 type PatientInfo = UserInfo & MedicalRecord;
@@ -46,6 +48,7 @@ export default function usePatientInfo(
     medicalRecordService
       .getMedicalRecord(userInfo.userId)
       .then(setMedicalRecord);
+      //this is the promise 
   }, [userService, userInfo]);
 
   useEffect(() => {
