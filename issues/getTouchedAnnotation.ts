@@ -22,6 +22,9 @@
 //  which we get from using both its height and width coupled with the top and left markers this skews the comparison of the distances
 //the algorithm works when all annotations have the same center in terms of width but when an annotations center is moved more right/ left this will mess up the algorithm
 
+//we can see what should be happening vs what is happening with the original code in page 3 of issue Investigation
+
+
 
 //Solution proposal:
 //we shouldnt just base the touch on the center point of an annotation becuase if the height of the annotation 
@@ -35,6 +38,8 @@
 //if not in boundary -> 
 //first check if touch point intersects perpendicular (check both x scale and y scale) to annotation gives us a straight line the closest distance 
 //then if not perpendicular check pythageros theorem to get distance from angle
+
+
 interface TouchPoint {
   x: number;
   y: number;
