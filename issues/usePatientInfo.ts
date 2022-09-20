@@ -52,7 +52,7 @@ export default function usePatientInfo(
     if (medicalRecord) {
       logAccess('obtain-access', userInfo.userId);
     }
-  }, [medicalRecord, userInfo]);
+  }, [medicalRecord, userInfo, logAccess]);
 
   return medicalRecord ? { ...userInfo, ...medicalRecord } : undefined;
 }
