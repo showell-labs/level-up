@@ -31,3 +31,9 @@ need for extra modules.
 
 - It is OK to use any sources to resolve the issues, but you'll be only fooling yourself
 if you cannot resolve the issues with your current knowledge and some basic Googling.
+
+## About Showell
+
+Showell is a Sales Enablement platform that sales people across the globe use to impress buyers and win deals.
+
+https://showell.com
